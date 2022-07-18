@@ -20,7 +20,6 @@ public class PlayerFallState : PlayerBaseState
       else
         stateManager.SwitchState(PlayerStateManager.PlayerState.Walk);
     }
-      
   }
 
   public override void FixedUpdateState(PlayerStateManager player)

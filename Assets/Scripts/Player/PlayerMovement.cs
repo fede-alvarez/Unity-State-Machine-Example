@@ -10,7 +10,6 @@ public class PlayerMovement : MonoBehaviour
   [Header("Game Feel")]
   [SerializeField] private float _coyoteTime = 0.1f;
   [SerializeField] private float _jumpBufferTime = 0.1f;
-  [SerializeField] private float _rollTime = 1.0f;
 
   [Header("Gravity")]
   [SerializeField] private float _normalGravityScale = 1;
@@ -27,8 +26,12 @@ public class PlayerMovement : MonoBehaviour
   private bool _jumpPressed = false;
   private bool _rollPressed = false;
   private bool _attackPressed = false;
+  private bool _lockRotation = false;
 
   private bool _isGrounded = false;
+
+  private float _coyoteTimeCounter = 0;
+  private float _lastJumpPressed;
 
   private Animator _playerAnimator;
   private Rigidbody _rb;
@@ -44,39 +47,24 @@ public class PlayerMovement : MonoBehaviour
       _gravityScale = _normalGravityScale;
   }
 
-  public void SetAnimation(string animationName, float value = 0, bool isTrigger = true)
-  {
-    if (isTrigger)
-      _playerAnimator.SetTrigger(animationName);
-    else
-      _playerAnimator.SetFloat(animationName, value);
-
-    //_playerAnimator.SetLayerWeight(1,1);
-  }
-
-  public void SetLayerWeight(int value)
-  {
-    _playerAnimator.SetLayerWeight(1, value);
-  }
-
-  public bool AnimationEnded(int defaultLayer = 0)
-  {
-    AnimatorStateInfo animStateInfo = _playerAnimator.GetCurrentAnimatorStateInfo(defaultLayer); // Layer 0 (Base Layer)
-    float normalizedTime = animStateInfo.normalizedTime;
-    
-    return (normalizedTime > 0.8f) ? true : false;
-  }
-
   private void Update() 
   {
       _movement = new Vector3(Input.GetAxisRaw("Vertical"), 0, -Input.GetAxisRaw("Horizontal"));
 
-      if (_movement != Vector3.zero)
+      if (_movement != Vector3.zero && !_lockRotation)
             _playerModel.forward = Vector3.Slerp(_playerModel.forward, _movement, Time.deltaTime * 10);
 
       _jumpPressed = Input.GetButtonDown("Fire2"); // PS4 - Cross - Jump
       _rollPressed = Input.GetButtonDown("Fire3"); // PS4 - Circle - Roll
       _attackPressed = Input.GetButtonDown("Fire1"); // PS4 - Square - Attack
+
+      if (_jumpPressed)
+        _lastJumpPressed = Time.time;
+
+      if (!_isGrounded)
+        _coyoteTimeCounter += Time.deltaTime;
+      else
+        _coyoteTimeCounter = 0;
   }
 
   private void FixedUpdate() 
@@ -100,7 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
   public void Roll()
   {
-    _rb.AddForce(_playerModel.transform.forward * 0.1f, ForceMode.Impulse);
+    _rb.AddForce(_playerModel.transform.forward * 0.15f, ForceMode.Impulse);
   }
 
   private void ApplyGravity()
@@ -111,6 +99,40 @@ public class PlayerMovement : MonoBehaviour
   public void SetGravityScale(bool isFalling = false)
   {
     _gravityScale = (isFalling) ? _fallGravityScale : _normalGravityScale;
+  }
+
+  public void SetAnimation(string animationName, float value = 0, bool isTrigger = true)
+  {
+    if (isTrigger)
+      _playerAnimator.SetTrigger(animationName);
+    else
+      _playerAnimator.SetFloat(animationName, value);
+
+    //_playerAnimator.SetLayerWeight(1,1);
+  }
+
+  public void SetLayerWeight(int value)
+  {
+    _playerAnimator.SetLayerWeight(1, value);
+  }
+
+  public bool AnimationEnded(int defaultLayer = 0)
+  {
+    AnimatorStateInfo animStateInfo = _playerAnimator.GetCurrentAnimatorStateInfo(defaultLayer); // Layer 0 (Base Layer)    
+    return (animStateInfo.normalizedTime > 0.5f) ? true : false;
+  }
+
+  public bool OnJumpPressed()
+  {
+    if (_jumpPressed && (InCoyoteTime || JumpBuffered) )
+      return true;
+
+    return false;
+  }
+
+  public void ToggleRotationLocked()
+  {
+    _lockRotation = !_lockRotation;
   }
 
   private void OnTriggerEnter(Collider other) 
@@ -138,6 +160,16 @@ public class PlayerMovement : MonoBehaviour
   public bool RollPressed
   {
     get { return _rollPressed; }
+  }
+
+  public bool JumpBuffered
+  {
+    get { return _isGrounded && (_lastJumpPressed + _jumpBufferTime > Time.time); }
+  }
+
+  public bool InCoyoteTime
+  {
+    get { return _isGrounded || (_coyoteTimeCounter > 0.03f && _coyoteTimeCounter < _coyoteTime); }
   }
 
   public bool IsMoving 

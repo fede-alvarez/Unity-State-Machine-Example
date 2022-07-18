@@ -9,6 +9,7 @@ public class PlayerRollState : PlayerBaseState
       _player = stateManager.GetPlayer;
 
     _player.SetAnimation("Roll");
+    _player.ToggleRotationLocked();
   }
 
   public override void UpdateState(PlayerStateManager stateManager)
@@ -25,5 +26,10 @@ public class PlayerRollState : PlayerBaseState
   public override void FixedUpdateState(PlayerStateManager player)
   {
     _player.Roll();
+  }
+
+  public override void OnExitState(PlayerStateManager player)
+  {
+    _player.ToggleRotationLocked();
   }
 }

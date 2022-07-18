@@ -16,7 +16,7 @@ public class PlayerWalkState : PlayerBaseState
       if(!_player.IsMoving)
         stateManager.SwitchState(PlayerStateManager.PlayerState.Idle);
 
-      if (_player.JumpPressed)
+      if (_player.OnJumpPressed())
         stateManager.SwitchState(PlayerStateManager.PlayerState.Jump);
 
       if (_player.AttackPressed)
