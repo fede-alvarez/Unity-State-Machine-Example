@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeMonkey_HealthSystem", "CodeMonkey_HealthSystem.csproj", "{93da4c1e-fd03-2d68-79aa-1a8cceefe0ca}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{ed5a18b9-ef41-5316-056a-d80594983a88}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{aadec12f-3912-413b-b33a-2a9d84b9b457}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{ed5a18b9-ef41-5316-056a-d80594983a88}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThirteenPixels.Placr", "ThirteenPixels.Placr.csproj", "{b667053f-d001-8438-ac4e-59f5c51c221d}"
 EndProject
@@ -20,10 +20,10 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{93da4c1e-fd03-2d68-79aa-1a8cceefe0ca}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{93da4c1e-fd03-2d68-79aa-1a8cceefe0ca}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ed5a18b9-ef41-5316-056a-d80594983a88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ed5a18b9-ef41-5316-056a-d80594983a88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{aadec12f-3912-413b-b33a-2a9d84b9b457}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{aadec12f-3912-413b-b33a-2a9d84b9b457}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ed5a18b9-ef41-5316-056a-d80594983a88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ed5a18b9-ef41-5316-056a-d80594983a88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{b667053f-d001-8438-ac4e-59f5c51c221d}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{b667053f-d001-8438-ac4e-59f5c51c221d}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{490cd26b-5a38-affd-f7c7-c5acbb472a1f}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

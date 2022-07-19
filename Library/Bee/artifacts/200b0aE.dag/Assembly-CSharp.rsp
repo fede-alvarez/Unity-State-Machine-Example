@@ -371,13 +371,6 @@
 "Assets/Scripts/Player/_States/PlayerRunState.cs"
 "Assets/Scripts/Player/_States/PlayerWalkState.cs"
 "Assets/Scripts/Utils/TriggerZone.cs"
-"Assets/Third Party/ARPG Effects/Demo/Scripts/ARPGFXCycler.cs"
-"Assets/Third Party/ARPG Effects/Demo/Scripts/ARPGFXLoopScript.cs"
-"Assets/Third Party/ARPG Effects/Demo/Scripts/ARPGSceneSelect.cs"
-"Assets/Third Party/ARPG Effects/Scripts/ARPGFXLightFade.cs"
-"Assets/Third Party/ARPG Effects/Scripts/ARPGFXLightFlicker.cs"
-"Assets/Third Party/ARPG Effects/Scripts/ARPGFXPortalScript.cs"
-"Assets/Third Party/ARPG Effects/Scripts/ARPGFXRotation.cs"
 "Assets/Third Party/ColorSkies/Demo/Scripts/LookCamera.cs"
 "Assets/Third Party/ColorSkies/Demo/Scripts/SkyboxChanger.cs"
 -langversion:9.0

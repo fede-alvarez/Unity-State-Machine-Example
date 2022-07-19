@@ -36,23 +36,16 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets/Third Party/ARPG Effects/Demo/Scripts/ARPGFXLoopScript.cs" />
      <Compile Include="Assets/Third Party/ColorSkies/Demo/Scripts/LookCamera.cs" />
-     <Compile Include="Assets/Third Party/ARPG Effects/Scripts/ARPGFXLightFade.cs" />
      <Compile Include="Assets/Scripts/Player/_States/PlayerWalkState.cs" />
-     <Compile Include="Assets/Third Party/ARPG Effects/Demo/Scripts/ARPGSceneSelect.cs" />
-     <Compile Include="Assets/Third Party/ARPG Effects/Demo/Scripts/ARPGFXCycler.cs" />
      <Compile Include="Assets/Scripts/Player/PlayerBaseState.cs" />
      <Compile Include="Assets/Scripts/Player/_States/PlayerRollState.cs" />
-     <Compile Include="Assets/Third Party/ARPG Effects/Scripts/ARPGFXRotation.cs" />
      <Compile Include="Assets/Scripts/Player/PlayerStateManager.cs" />
      <Compile Include="Assets/Scripts/Player/_States/PlayerJumpState.cs" />
      <Compile Include="Assets/Scripts/Player/_States/PlayerRunState.cs" />
-     <Compile Include="Assets/Third Party/ARPG Effects/Scripts/ARPGFXLightFlicker.cs" />
      <Compile Include="Assets/Scripts/Player/_States/PlayerFallState.cs" />
      <Compile Include="Assets/Scripts/Player/PlayerMovement.cs" />
      <Compile Include="Assets/Scripts/Player/_States/PlayerIdleState.cs" />
-     <Compile Include="Assets/Third Party/ARPG Effects/Scripts/ARPGFXPortalScript.cs" />
      <Compile Include="Assets/Scripts/Player/_States/PlayerAttackState.cs" />
      <Compile Include="Assets/Scripts/Managers/GameManager.cs" />
      <Compile Include="Assets/Third Party/ColorSkies/Demo/Scripts/SkyboxChanger.cs" />
@@ -63,7 +56,6 @@
      <None Include="Assets/Third Party/PeterLu_HologramShader/Shader/BasicHologram.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
-     <None Include="Assets/Third Party/ARPG Effects/Readme.txt" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
      <None Include="Assets/Third Party/PeterLu_HologramShader/Shader/DistortionRim.shader" />
      <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
@@ -725,6 +717,9 @@
     <Reference Include="Unity.VisualStudio.Editor">
         <HintPath>/Users/fede/Documents/dev/protos/CP/Library/ScriptAssemblies/Unity.VisualStudio.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.Sysroot.Linux_x86_64">
+        <HintPath>/Users/fede/Documents/dev/protos/CP/Library/ScriptAssemblies/Unity.Sysroot.Linux_x86_64.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.Timeline">
         <HintPath>/Users/fede/Documents/dev/protos/CP/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
     </Reference>
@@ -758,14 +753,14 @@
     <Reference Include="UnityEngine.UI">
         <HintPath>/Users/fede/Documents/dev/protos/CP/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.Services.Core">
-        <HintPath>/Users/fede/Documents/dev/protos/CP/Library/ScriptAssemblies/Unity.Services.Core.dll</HintPath>
+    <Reference Include="Unity.EditorCoroutines.Editor">
+        <HintPath>/Users/fede/Documents/dev/protos/CP/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Core">
         <HintPath>/Users/fede/Documents/dev/protos/CP/Library/ScriptAssemblies/Unity.VisualScripting.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Unity.EditorCoroutines.Editor">
-        <HintPath>/Users/fede/Documents/dev/protos/CP/Library/ScriptAssemblies/Unity.EditorCoroutines.Editor.dll</HintPath>
+    <Reference Include="Unity.Services.Core">
+        <HintPath>/Users/fede/Documents/dev/protos/CP/Library/ScriptAssemblies/Unity.Services.Core.dll</HintPath>
     </Reference>
     <Reference Include="Cinemachine">
         <HintPath>/Users/fede/Documents/dev/protos/CP/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
@@ -775,6 +770,9 @@
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
         <HintPath>/Users/fede/Documents/dev/protos/CP/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Toolchain.Macos-x86_64-Linux-x86_64">
+        <HintPath>/Users/fede/Documents/dev/protos/CP/Library/ScriptAssemblies/Unity.Toolchain.Macos-x86_64-Linux-x86_64.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VisualScripting.Shared.Editor">
         <HintPath>/Users/fede/Documents/dev/protos/CP/Library/ScriptAssemblies/Unity.VisualScripting.Shared.Editor.dll</HintPath>
@@ -790,6 +788,9 @@
     </Reference>
     <Reference Include="Unity.VisualScripting.State">
         <HintPath>/Users/fede/Documents/dev/protos/CP/Library/ScriptAssemblies/Unity.VisualScripting.State.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.SysrootPackage.Editor">
+        <HintPath>/Users/fede/Documents/dev/protos/CP/Library/ScriptAssemblies/Unity.SysrootPackage.Editor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

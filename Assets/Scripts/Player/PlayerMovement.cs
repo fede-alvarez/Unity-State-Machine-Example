@@ -18,6 +18,9 @@ public class PlayerMovement : MonoBehaviour
   [Header("Model")]
   [SerializeField] private Transform _playerModel;
 
+  [Header("Ground detection")]
+  [SerializeField] private LayerMask _floorMask;
+
   private float _gravity = Mathf.Abs(Physics.gravity.y);
   private float _gravityScale;
 
@@ -57,6 +60,15 @@ public class PlayerMovement : MonoBehaviour
       _jumpPressed = Input.GetButtonDown("Fire2"); // PS4 - Cross - Jump
       _rollPressed = Input.GetButtonDown("Fire3"); // PS4 - Circle - Roll
       _attackPressed = Input.GetButtonDown("Fire1"); // PS4 - Square - Attack
+      
+      Debug.DrawRay(transform.position,-transform.up * 0.2f, Color.magenta);
+      RaycastHit hit;
+      if (Physics.Raycast(transform.position, -transform.up, out hit, 0.2f, _floorMask)) 
+      {
+          _isGrounded = true;
+      }else{
+        _isGrounded = false;
+      }
 
       if (_jumpPressed)
         _lastJumpPressed = Time.time;
@@ -135,7 +147,7 @@ public class PlayerMovement : MonoBehaviour
     _lockRotation = !_lockRotation;
   }
 
-  private void OnTriggerEnter(Collider other) 
+  /*private void OnTriggerEnter(Collider other) 
   {
       if (!other.CompareTag("Floor")) return;
       _isGrounded = true;
@@ -145,7 +157,7 @@ public class PlayerMovement : MonoBehaviour
   {
       if (!other.CompareTag("Floor")) return;
       _isGrounded = false;
-  }
+  }*/
 
   public bool JumpPressed
   {

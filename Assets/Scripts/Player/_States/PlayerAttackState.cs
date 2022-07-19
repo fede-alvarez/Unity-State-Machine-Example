@@ -21,9 +21,6 @@ public class PlayerAttackState : PlayerBaseState
       else
         stateManager.SwitchState(PlayerStateManager.PlayerState.Walk);
     }
-
-    if (_player.JumpPressed)
-      stateManager.SwitchState(PlayerStateManager.PlayerState.Jump);
   }
 
   public override void FixedUpdateState(PlayerStateManager player)

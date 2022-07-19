@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5670393159793348808}
   - component: {fileID: 5670393159793348815}
   - component: {fileID: 5670393159793348814}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collider
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5670393159925427711}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform_4x2
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -184,6 +184,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a64964dcde6b344e984f4118db6c8ce3, type: 3}
       propertyPath: m_Name
       value: Platform_4x2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a64964dcde6b344e984f4118db6c8ce3, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a64964dcde6b344e984f4118db6c8ce3, type: 3}
