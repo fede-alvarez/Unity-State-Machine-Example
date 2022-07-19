@@ -57,19 +57,12 @@ public class PlayerMovement : MonoBehaviour
       if (_movement != Vector3.zero && !_lockRotation)
             _playerModel.forward = Vector3.Slerp(_playerModel.forward, _movement, Time.deltaTime * 10);
 
+      _isGrounded = GroundChecker();
+
       _jumpPressed = Input.GetButtonDown("Fire2"); // PS4 - Cross - Jump
       _rollPressed = Input.GetButtonDown("Fire3"); // PS4 - Circle - Roll
       _attackPressed = Input.GetButtonDown("Fire1"); // PS4 - Square - Attack
       
-      Debug.DrawRay(transform.position,-transform.up * 0.2f, Color.magenta);
-      RaycastHit hit;
-      if (Physics.Raycast(transform.position, -transform.up, out hit, 0.2f, _floorMask)) 
-      {
-          _isGrounded = true;
-      }else{
-        _isGrounded = false;
-      }
-
       if (_jumpPressed)
         _lastJumpPressed = Time.time;
 
@@ -77,6 +70,19 @@ public class PlayerMovement : MonoBehaviour
         _coyoteTimeCounter += Time.deltaTime;
       else
         _coyoteTimeCounter = 0;
+  }
+
+  private bool GroundChecker()
+  {
+      RaycastHit hit;
+
+      //Debug.DrawRay(transform.position + new Vector3(0,0.08f,0),-transform.up * 0.15f, currentColor);
+      if (Physics.Raycast(transform.position + new Vector3(0,0.08f,0), -transform.up , out hit, 0.15f, _floorMask)) 
+      {
+          return true;
+      }
+
+      return false;
   }
 
   private void FixedUpdate() 

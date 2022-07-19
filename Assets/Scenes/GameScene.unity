@@ -640,7 +640,7 @@ MonoBehaviour:
   _movementSpeed: 3
   _runSpeed: 5
   _jumpForce: 8
-  _coyoteTime: 0.1
+  _coyoteTime: 0.2
   _jumpBufferTime: 0.2
   _normalGravityScale: 0.01
   _fallGravityScale: 0.012
