@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
   [SerializeField] private float _movementSpeed;
   [SerializeField] private float _runSpeed;
   [SerializeField] private float _jumpForce;
+  [SerializeField] private float _minJumpForceScale = 0.3f;
 
   [Header("Game Feel")]
   [SerializeField] private float _coyoteTime = 0.1f;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
   private Vector3 _movement;
 
   private bool _jumpPressed = false;
+  private bool _jumpReleased = false;
   private bool _rollPressed = false;
   private bool _attackPressed = false;
   private bool _lockRotation = false;
@@ -60,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
       _isGrounded = GroundChecker();
 
       _jumpPressed = Input.GetButtonDown("Fire2"); // PS4 - Cross - Jump
+      _jumpReleased = Input.GetButtonUp("Fire2");
       _rollPressed = Input.GetButtonDown("Fire3"); // PS4 - Circle - Roll
       _attackPressed = Input.GetButtonDown("Fire1"); // PS4 - Square - Attack
       
@@ -104,6 +107,11 @@ public class PlayerMovement : MonoBehaviour
     _rb.AddForce(transform.up * _jumpForce, ForceMode.VelocityChange);
   }
 
+  public void HalfJump()
+  {
+    _rb.AddForce(-transform.up * (_jumpForce * _minJumpForceScale), ForceMode.VelocityChange);
+  }
+
   public void Roll()
   {
     _rb.AddForce(_playerModel.transform.forward * 0.15f, ForceMode.Impulse);
@@ -142,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
 
   public bool OnJumpPressed()
   {
-    if (_jumpPressed && (InCoyoteTime || JumpBuffered) )
+    if (InCoyoteTime && JumpBuffered)
       return true;
 
     return false;
@@ -153,21 +161,14 @@ public class PlayerMovement : MonoBehaviour
     _lockRotation = !_lockRotation;
   }
 
-  /*private void OnTriggerEnter(Collider other) 
-  {
-      if (!other.CompareTag("Floor")) return;
-      _isGrounded = true;
-  }
-
-  private void OnTriggerExit(Collider other) 
-  {
-      if (!other.CompareTag("Floor")) return;
-      _isGrounded = false;
-  }*/
-
   public bool JumpPressed
   {
     get { return _jumpPressed; }
+  }
+
+  public bool JumpReleased
+  {
+    get { return _jumpReleased; }
   }
 
   public bool AttackPressed
@@ -182,7 +183,11 @@ public class PlayerMovement : MonoBehaviour
 
   public bool JumpBuffered
   {
-    get { return _isGrounded && (_lastJumpPressed + _jumpBufferTime > Time.time); }
+    //print(_lastJumpPressed + " - " + (_lastJumpPressed + _jumpBufferTime) + " = " + (_lastJumpPressed + _jumpBufferTime > Time.time));
+    get 
+    {  
+      return _lastJumpPressed > 0 && _lastJumpPressed + _jumpBufferTime > Time.time;
+    }
   }
 
   public bool InCoyoteTime
