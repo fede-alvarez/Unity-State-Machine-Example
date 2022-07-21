@@ -14,10 +14,10 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.9686275, g: 0.63529414, b: 0.38823533, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.8301887, g: 0.5349752, b: 0.31719476, a: 1}
   m_FogMode: 2
-  m_FogDensity: 1
+  m_FogDensity: 0.1
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 1.0973843, g: 1.3947102, b: 0.08552472, a: 1}
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.4
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.2772695, g: 0.11409505, b: 0.055238076, a: 0.4}
+  m_IndirectSpecularColor: {r: 0.56730837, g: 0.37492496, b: 0.26283008, a: 0.4}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1753,7 +1753,7 @@ Camera:
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_RenderingPath: 3
+  m_RenderingPath: 1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3

@@ -11,15 +11,15 @@ public class PlayerJumpState : PlayerBaseState
 
   public override void UpdateState(PlayerStateManager stateManager)
   {
-    if (_player.JumpReleased)
-      _player.HalfJump();
-
     if (_player.IsFalling)
         stateManager.SwitchState(PlayerStateManager.PlayerState.Fall);
   }
 
   public override void FixedUpdateState(PlayerStateManager player)
   {
+    if (_player.JumpReleased)
+      _player.HalfJump();
+    
     _player.ApplyInputMovement();
   }
 }
